@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Agrícola</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌱 Calculadora Agrícola</h1>
+
+        <label for="produto">Escolha um produto:</label>
+        <select id="produto">
+            <option value="5">Tomate - R$ 5,00/kg</option>
+            <option value="3">Batata - R$ 3,00/kg</option>
+            <option value="7">Maçã - R$ 7,00/kg</option>
+            <option value="4">Cenoura - R$ 4,00/kg</option>
+            <option value="6">Alface - R$ 6,00/kg</option>
+        </select>
+
+        <label for="quantidade">Quantidade (kg):</label>
+        <input type="number" id="quantidade" min="1" value="1">
+
+        <button onclick="calcular()">Calcular Total</button>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
