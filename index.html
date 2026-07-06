@@ -3,29 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Agrícola</title>
+    <title>Calculadora Agrícola Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>🌱 Calculadora Agrícola</h1>
+        <header>
+            <h1>🌱 Calculadora Agrícola</h1>
+            <p>Gerencie seus produtos e preços de venda</p>
+        </header>
 
-        <label for="produto">Escolha um produto:</label>
-        <select id="produto">
-            <option value="5">Tomate - R$ 5,00/kg</option>
-            <option value="3">Batata - R$ 3,00/kg</option>
-            <option value="7">Maçã - R$ 7,00/kg</option>
-            <option value="4">Cenoura - R$ 4,00/kg</option>
-            <option value="6">Alface - R$ 6,00/kg</option>
-        </select>
+        <div class="card">
+            <label for="produto">Escolha um produto:</label>
+            <select id="produto">
+                <option value="tomate" data-preco="5.00">Tomate</option>
+                <option value="batata" data-preco="3.00">Batata</option>
+                <option value="maca" data-preco="7.00">Maçã</option>
+                <option value="cenoura" data-preco="4.00">Cenoura</option>
+                <option value="alface" data-preco="6.00">Alface</option>
+                <option value="cebola" data-preco="3.50">Cebola</option>
+                <option value="alho" data-preco="15.00">Alho</option>
+                <option value="morango" data-preco="12.00">Morango</option>
+                <option value="pimentao" data-preco="5.50">Pimentão</option>
+            </select>
+            <div class="preco-base-info">Preço base: <span id="precoBaseText">R$ 5,00</span>/kg</div>
+        </div>
 
-        <label for="quantidade">Quantidade (kg):</label>
-        <input type="number" id="quantidade" min="1" value="1">
+        <div class="card">
+            <div class="input-group">
+                <label for="quantidade">Quantidade (kg):</label>
+                <input type="number" id="quantidade" min="1" value="1">
+            </div>
 
-        <button onclick="calcular()">Calcular Total</button>
+            <div class="input-group">
+                <label for="ajusteMargem">Ajuste de Preço / Margem (%):</label>
+                <input type="number" id="ajusteMargem" value="0" placeholder="Ex: 10 para lucro, -5 para desconto">
+                <small class="help-text">Use valores positivos para lucro/taxas e negativos para descontos.</small>
+            </div>
 
-        <div id="resultado" class="resultado"></div>
+            <button onclick="calcular()">Calcular Total</button>
+        </div>
+
+        <div id="cardResultado" class="card resultado-card hidden">
+            <h3>Resumo do Cálculo</h3>
+            <div class="resultado-item">
+                <span>Preço por kg ajustado:</span>
+                <span id="resPrecoQuilo">R$ 0,00</span>
+            </div>
+            <div class="resultado-item total">
+                <span>Valor Total:</span>
+                <span id="resValorTotal">R$ 0,00</span>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
